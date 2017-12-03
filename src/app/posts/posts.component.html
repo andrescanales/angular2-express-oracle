@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row" *ngFor="let post of posts">
+    <div class="card card-block">
+      <h4 class="card-title">Producto:</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{ post.NOMBRE }}</h6>
+      <p class="card-text" style="margin-bottom:0;">Descripcion: {{ post.DESCRIPCION }}</p>
+      <p class="card-text" style="margin-bottom:0;">Existencia: {{ post.EXISTENCIA }}</p>
+      <p class="card-text" style="margin-bottom:0;">Costo unitario: {{ post.COSTO_UNITARIO }}</p>
+      <p class="card-text" style="margin-bottom:0;">Precio de venta: {{ post.PRECIO_VENTA }}</p>
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" id="{{ post.COD_PRODUCTO }}">Editar</button>
+      <button type="button" class="btn btn-danger">Eliminar</button>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Editar producto</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+		    <label for="producto">Producto: </label>
+		    <input type="text" class="form-control" id="producto">
+		  </div>
+
+          <div class="form-group">
+		    <label for="descripcion">Descripcion: </label>
+		    <input type="text" class="form-control" id="descripcion">
+		  </div>
+
+          <div class="form-group">
+		    <label for="cod_proveedor">Codigo proveedor: </label>
+		    <input type="text" class="form-control" id="cod_proveedor">
+		  </div>
+
+          <div class="form-group">
+		    <label for="costo_unitario">Costo unitario: </label>
+		    <input type="text" class="form-control" id="costo_unitario">
+		  </div>
+
+          <div class="form-group">
+		    <label for="precio_venta">Precio venta: </label>
+		    <input type="text" class="form-control" id="precio_venta">
+		  </div>
+        </div>
+
+        <div class="form-control">
+        	<button type="button" class="btn btn-primary" id="editar_producto">Editar</button>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+</div>

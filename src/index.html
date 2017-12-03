@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TestApp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script type="text/javascript">
+	
+$(document).ready(function() {
+    $("#editar_producto").click(function(){
+    	params = {
+    		NOMBRE : $("#producto").val(),
+			COSTO_UNITARIO : $("#costo_unitario").val(),
+			COD_PRODUCTO : $("#cod_producto").val(),
+    	};
+	    $.ajax({
+			url: 'http://localhost:3000/api/products',
+			type: 'POST',
+			data: params,
+			dataType: 'json',
+			success: function(response) { //
+	            alert("Producto editado");
+	        },
+	        error: function(jqXHR,textStatus,errorThrown) {
+	            alert('Error No existe codigo de empleado');
+	        }
+		});
+    });
+});
+
+</script>
+</html>
